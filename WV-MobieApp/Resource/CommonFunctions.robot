@@ -31,6 +31,10 @@ Login Function
     Input Text    ${PasswordField}    ${Password}
     Click Element    ${Login}
     
+Logout Function
+    Sleep    10s    
+    Click Element    ${LogoutButton}        
+
 Click Skip
     Click Element    ${SkipButton}
     
@@ -42,6 +46,10 @@ Vertical swipe
     
 Right Swipe
     Swipe    1004    1055    298    1050
+    
+Left banner Swipe
+    Sleep    10s    
+    Swipe    0    1026    800    1026
     
 Element status check
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}

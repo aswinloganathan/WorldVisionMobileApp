@@ -40,7 +40,7 @@ To verify the banner scroll on the welcome screen
     Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page 
     
 To verify the Login screen 
-    [Tags]    Login Screen    
+    [Tags]    Login functionality    
                 
     Vertical swipe    
     Click WV app    
@@ -57,7 +57,7 @@ To verify the Login screen
     Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page     
     
 To verify login in APP by Website registered user
-    [Tags]    Login Screen
+    [Tags]    Login functionality
             
     Vertical swipe    
     Click WV app    
@@ -66,35 +66,24 @@ To verify login in APP by Website registered user
     Sleep    5s
     Login Function
     Sleep    10s    
-    Element status check    ${User}    Username was displayed on HomePage    Username dispalyed on HomePage
-    
+    Element status check    ${User}    Username was displayed on HomePage    Username dispalyed on HomePage                
 
+To verify the Logout functionality
+    [Tags]    Logout functionality
     
+    Vertical swipe
+    Click WV app    
+    Sleep    10s
+    Click Skip
+    Sleep    5s
+    Login Function
+    Sleep    10s    
+    Element status check    ${User}    Username was displayed on HomePage    Username dispalyed on HomePage            
+    Left banner Swipe  
+    Logout Function
+    Sleep    10        
+
 # To verify login in APP by Landing page registered user
     # [Tags]    Login Screen
-    
-    
-    
-    
-    
-
-# Login and Logout
-    
-    # Open Worldvision
-    # Wait Until Element Is Visible   xpath=//android.view.View[contains(@text,'Skip')]    20s
-    # Click Element        xpath=//android.view.View[contains(@text,'Skip')]
-    
-    # Wait Until Element Is Visible    xpath=(//*[@class='android.widget.EditText'])[1]    20s
-    # Input Text    xpath=(//*[@class='android.widget.EditText'])[1]    ${USERNAME}
-    # Input Password    xpath=(//*[@class='android.widget.EditText'])[2]    ${PASSWORD}
-    # Click Element    xpath=//android.widget.Button[contains(@text,'LOGIN')]
-    
-    # Sleep    20s
-    # Swipe    0    1026    800    1026  
-    # Wait Until Page Contains Element    //android.view.View//android.view.View[2]//android.widget.Button[contains(@text,'Logout')]    25s
-    # Click Element    //android.view.View//android.view.View[2]//android.widget.Button[contains(@text,'Logout')]
-    
-    # Sleep    10s    
-    # Close Application
     
     

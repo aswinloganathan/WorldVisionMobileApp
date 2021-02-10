@@ -18,3 +18,7 @@ PasswordField="xpath=(//*[@class='android.widget.EditText'])[2]"
 
 #HomePage
 User="xpath=//android.view.View[contains(@text,'TestNameF')]"
+
+#Logout
+#LogoutButton="//android.view.View//android.view.View[2]//android.widget.Button[contains(@text,'Logout')]"
+LogoutButton="//android.widget.Button[contains(@text,'Logout')]"

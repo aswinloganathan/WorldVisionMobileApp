@@ -24,7 +24,7 @@
 		<link>
 			<name>libspecs/AppiumLibrary.py</name>
 			<type>1</type>
-			<location>C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/AppiumLibrary/keywords/_screenshot.py</location>
+			<location>C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/AppiumLibrary/keywords/_element.py</location>
 		</link>
 	</linkedResources>
 </projectDescription>

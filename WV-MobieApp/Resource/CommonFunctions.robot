@@ -26,12 +26,37 @@ Set appium details
 Install new application    
     Install App    ${ApplicationPath}    ${PackageName}
     
+Open Application from menu
+    Vertical swipe                
+    Click WV app
+    
 Login Function
+    [Arguments]    ${UserName}    ${Password}
+
     Sleep    5s    
     Input Text    ${UserNameField}    ${UserName}
     Input Text    ${PasswordField}    ${Password}
     Click Element    ${Login}
     
+Clear Username field        
+    Clear Text    ${UserNameField}
+
+Clear Password field
+    Clear Text    ${PasswordField}
+    
+Input Username field
+    [Arguments]    ${element}
+    Input Text    ${UserNameField}    ${element}
+    
+Input password field
+    [Arguments]    ${element}
+    Input Text    ${PasswordField}    ${element}
+    
+Clear field text
+    [Arguments]    ${field}
+    
+    Clear Text    ${field}
+
 Logout Function       
     Left banner Swipe
     Sleep    10s    
@@ -42,7 +67,7 @@ Click login button
     Click Element    ${Login}     
 
 Click Skip
-    Sleep    10s    
+    Sleep    12s    
     Click Element    ${SkipButton}
     
 Click WV app
@@ -68,4 +93,14 @@ Element status check
     Sleep    5s        
     ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
     Run Keyword If    '${status}'!='True'    Fail    ${fail_msg}    Log    ${pass_msg}
+
+Element should not be visible
+    [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
+    
+    Sleep    5s        
+    ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
+    Run Keyword If    '${status}'!='False'    Fail    ${fail_msg}    Log    ${pass_msg}    
+
+    
+    
     

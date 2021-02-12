@@ -19,7 +19,7 @@ Open WV application
     Sleep    5s    
     Right Swipe        
     Click Skip    
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
     
 
 To verify the banner scroll on the welcome screen
@@ -31,7 +31,7 @@ To verify the banner scroll on the welcome screen
         Right Swipe
     END               
     Click login button           
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page 
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page 
     
     
 To verify the Login screen 
@@ -45,7 +45,7 @@ To verify the Login screen
     Click login button                
     Element status check    ${UserNameField}    Page doesnt contain username field    Page contain username field
     Element status check    ${PasswordField}    Page doesnt contain password field    Page contain password field
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page     
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page     
     
 To verify login in APP by Website registered user
     [Tags]    Login functionality
@@ -53,16 +53,16 @@ To verify login in APP by Website registered user
     Open Application from menu        
     Click Skip    
     Login Function    ${UserName}    ${Password}    
-    Element status check    ${User}    Username was displayed on HomePage    Username dispalyed on HomePage
+    Element status check    ${User}    Username was not displayed on HomePage    Username dispalyed on HomePage
     Logout Function                
 
 To verify the Logout functionality
     [Tags]    Logout functionality
     
     Open Application from menu        
-    Click Skip    
-    Login Function    ${UserName}    ${Password}
-    Element status check    ${User}    Username was displayed on HomePage    Username dispalyed on HomePage            
+    Click Skip
+    Login Function    ${UserName}    ${Password}   
+    Element status check    ${User}    Username was not displayed on HomePage    Username dispalyed on HomePage            
     Logout Function      
 
 To verify the Login functionality with invalid data
@@ -87,10 +87,10 @@ To verify the validations of username field with valid data
     
     Open Application from menu        
     Click Skip
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
     FOR    ${element}    IN    @{ValidUsernames}
         Input Username field    ${element}
-        Element should not be visible    ${UserNameAlrt}    Username alert appeared for invalid username     Username alert doesnt appear for invalid username
+        Element Should Not Be Visible    ${UserNameAlrt}    Username alert appeared for invalid username     Username alert doesnt appear for invalid username
         Clear Username field        
     END
 
@@ -99,7 +99,7 @@ To verify the validations of the username with invalid data
     
     Open Application from menu        
     Click Skip
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page    
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page    
     FOR    ${element}    IN    @{InvUsernames}
         Input Username field    ${element}        
         Element status check    ${UserNameAlrt}    Username alert doesnt appear for invalid username     Username alert appeared for invalid username
@@ -111,7 +111,7 @@ To verify the password field structure
     
     Open Application from menu        
     Click Skip
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
     Input password field    ${Password}
     Sleep    5s    
     ${password_got}=    Get Element Attribute    ${PasswordField}    text
@@ -122,7 +122,7 @@ To verify the login functionality with invalid OTP
     
     Open Application from menu
     Click Skip
-    Element status check    ${Login}    Application doesnt reach login page    Application reached Login Page
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
     Input Username field    ${UserName}
     Sleep    5s    
     Click Element    ${OTPButton}
@@ -130,6 +130,55 @@ To verify the login functionality with invalid OTP
     Element status check    ${OTPAlert}    OTP alert doesnt appear    OTP alert appeared
     Input password field    123456
     Element status check    ${InvCredential}    Alert message doesnt appear for Invalid credentials    Alert message appeared for Invalid credentials
+    
+To verify slider menu
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}    
+    Left Banner Swipe    
+    Left Menubar List Check    @{LeftMenuBar}     
+    Click Logout button
+    
+To verify Sticky Menu in home page
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Bottom Menubar List Check    @{BottomMenuBar}
+    Logout Function
+    
+To verify the navigation to home page from menu link
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    BottomMenuClick    ${BottomMenuTaxReceipt}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuHome}
+    
+    
+To verify the functionality of navigating to my givings page
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}    
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuSponsorChild}
+    
+To verify the functionality of navigating to Tax receipt page
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}  
+    Left Banner Swipe  
+    LeftMenuClick    ${LeftMenuTax}
     
     
     

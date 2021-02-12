@@ -36,7 +36,7 @@ Login Function
     Sleep    5s    
     Input Text    ${UserNameField}    ${UserName}
     Input Text    ${PasswordField}    ${Password}
-    Click Element    ${Login}
+    Click Element    ${LoginButton}
     
 Clear Username field        
     Clear Text    ${UserNameField}
@@ -64,16 +64,16 @@ Logout Function
     
 Click login button
     Sleep    5s    
-    Click Element    ${Login}     
+    Click Element    ${LoginButton}     
 
 Click Skip
-    Sleep    12s    
+    Sleep    15s    
     Click Element    ${SkipButton}
     
 Click WV app
     Click Element    ${WvIcon}
     
-Click Logout
+Click Logout button
     Click Element    ${LogoutButton}
     
 Vertical swipe
@@ -83,24 +83,58 @@ Right Swipe
     Sleep    5s    
     Swipe    1004    1055    298    1050
     
-Left banner Swipe
+Left Banner Swipe
     Sleep    10s    
     Swipe    0    1026    800    1026
     
 Element status check
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
     
-    Sleep    5s        
+    Sleep    5s
     ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
     Run Keyword If    '${status}'!='True'    Fail    ${fail_msg}    Log    ${pass_msg}
 
-Element should not be visible
+Element Should Not Be Visible
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
     
     Sleep    5s        
     ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
     Run Keyword If    '${status}'!='False'    Fail    ${fail_msg}    Log    ${pass_msg}    
+    
+Element visibility
+    [Arguments]    ${element}
+    
+    Element Should Be Visible    ${element}    60s   
 
+Left Menubar List Check
+    [Arguments]    @{ListOfElements}
     
+    Sleep    10s    
+    FOR    ${element}    IN    @{ListOfElements}
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.Button[contains(@text,'${element}')]    
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Sleep    2s            
+    END
+
+Bottom Menubar List Check
+    [Arguments]    @{ListOfElements}
     
+    Sleep    15s    
+    FOR    ${element}    IN    @{ListOfElements}
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.view.View[contains(@text,'${element}')]    
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Sleep    2s            
+    END    
+        
+LeftMenuClick
+    [Arguments]    ${element}
+    
+    Sleep    10s    
+    Click Element    ${element}
+    
+BottomMenuClick
+    [Arguments]    ${element}
+    
+    Sleep    10s    
+    Click Element    ${element}  
     

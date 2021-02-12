@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.6 on win32)" generated="20210211 20:50:04.866" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.6 on win32)" generated="20210212 18:58:06.405" rpa="false">
 <suite id="s1" name="WV-MobieApp" source="C:\Users\aswin\git\WorldVisionMobileApp\WV-MobieApp">
 <suite id="s1-s1" name="Testcase" source="C:\Users\aswin\git\WorldVisionMobileApp\WV-MobieApp\Testcase">
 <suite id="s1-s1-s1" name="WV-app" source="C:\Users\aswin\git\WorldVisionMobileApp\WV-MobieApp\Testcase\WV-app.robot">
-<test id="s1-s1-s1-t1" name="To verify the login functionality with invalid OTP">
+<test id="s1-s1-s1-t1" name="To verify the navigation to home page from menu link">
 <kw name="Set appium details" library="CommonFunctions" type="setup">
 <kw name="Open Application" library="AppiumLibrary">
 <doc>Opens a new application to given Appium server.
@@ -20,9 +20,9 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>automationName=UiAutomator2</arg>
 <arg>newCommandTimeout=2500</arg>
 </arguments>
-<status status="PASS" starttime="20210211 20:50:05.262" endtime="20210211 20:50:14.242"></status>
+<status status="PASS" starttime="20210212 18:58:06.830" endtime="20210212 18:58:15.179"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:05.262" endtime="20210211 20:50:14.242"></status>
+<status status="PASS" starttime="20210212 18:58:06.829" endtime="20210212 18:58:15.179"></status>
 </kw>
 <kw name="Open Application from menu" library="CommonFunctions">
 <kw name="Vertical swipe" library="CommonFunctions">
@@ -34,9 +34,9 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>565</arg>
 <arg>479</arg>
 </arguments>
-<status status="PASS" starttime="20210211 20:50:14.245" endtime="20210211 20:50:15.853"></status>
+<status status="PASS" starttime="20210212 18:58:15.182" endtime="20210212 18:58:16.740"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:14.244" endtime="20210211 20:50:15.854"></status>
+<status status="PASS" starttime="20210212 18:58:15.181" endtime="20210212 18:58:16.741"></status>
 </kw>
 <kw name="Click WV app" library="CommonFunctions">
 <kw name="Click Element" library="AppiumLibrary">
@@ -44,272 +44,165 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arguments>
 <arg>${WvIcon}</arg>
 </arguments>
-<msg timestamp="20210211 20:50:15.860" level="INFO">Clicking element 'xpath=(//android.widget.TextView[@content-desc="worldvision"])[1]'.</msg>
-<status status="PASS" starttime="20210211 20:50:15.855" endtime="20210211 20:50:16.485"></status>
+<msg timestamp="20210212 18:58:16.744" level="INFO">Clicking element 'xpath=(//android.widget.TextView[@content-desc="worldvision"])[1]'.</msg>
+<status status="PASS" starttime="20210212 18:58:16.742" endtime="20210212 18:58:17.378"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:15.854" endtime="20210211 20:50:16.485"></status>
+<status status="PASS" starttime="20210212 18:58:16.741" endtime="20210212 18:58:17.382"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:14.243" endtime="20210211 20:50:16.486"></status>
+<status status="PASS" starttime="20210212 18:58:15.180" endtime="20210212 18:58:17.382"></status>
 </kw>
 <kw name="Click Skip" library="CommonFunctions">
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
-<arg>12s</arg>
+<arg>15s</arg>
 </arguments>
-<msg timestamp="20210211 20:50:28.504" level="INFO">Slept 12 seconds</msg>
-<status status="PASS" starttime="20210211 20:50:16.487" endtime="20210211 20:50:28.505"></status>
+<msg timestamp="20210212 18:58:32.398" level="INFO">Slept 15 seconds</msg>
+<status status="PASS" starttime="20210212 18:58:17.386" endtime="20210212 18:58:32.399"></status>
 </kw>
 <kw name="Click Element" library="AppiumLibrary">
 <doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${SkipButton}</arg>
 </arguments>
-<msg timestamp="20210211 20:50:28.515" level="INFO">Clicking element 'xpath=//android.view.View[contains(@text,'Skip')]'.</msg>
-<status status="PASS" starttime="20210211 20:50:28.507" endtime="20210211 20:50:28.981"></status>
+<msg timestamp="20210212 18:58:32.402" level="INFO">Clicking element 'xpath=//android.view.View[contains(@text,'Skip')]'.</msg>
+<status status="PASS" starttime="20210212 18:58:32.399" endtime="20210212 18:58:32.640"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:16.486" endtime="20210211 20:50:28.982"></status>
+<status status="PASS" starttime="20210212 18:58:17.383" endtime="20210212 18:58:32.640"></status>
 </kw>
-<kw name="Element status check" library="CommonFunctions">
+<kw name="Login Function" library="CommonFunctions">
 <arguments>
-<arg>${Login}</arg>
-<arg>Application doesnt reach login page</arg>
-<arg>Application reached Login Page</arg>
+<arg>${UserName}</arg>
+<arg>${Password}</arg>
 </arguments>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
 <arg>5s</arg>
 </arguments>
-<msg timestamp="20210211 20:50:33.993" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210211 20:50:28.984" endtime="20210211 20:50:33.994"></status>
+<msg timestamp="20210212 18:58:37.651" level="INFO">Slept 5 seconds</msg>
+<status status="PASS" starttime="20210212 18:58:32.642" endtime="20210212 18:58:37.653"></status>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>${element}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<status status="PASS" starttime="20210211 20:50:33.998" endtime="20210211 20:50:34.512"></status>
-</kw>
-<msg timestamp="20210211 20:50:34.513" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210211 20:50:33.995" endtime="20210211 20:50:34.513"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${fail_msg}</arg>
-<arg>Log</arg>
-<arg>${pass_msg}</arg>
-</arguments>
-<status status="PASS" starttime="20210211 20:50:34.514" endtime="20210211 20:50:34.515"></status>
-</kw>
-<status status="PASS" starttime="20210211 20:50:28.983" endtime="20210211 20:50:34.515"></status>
-</kw>
-<kw name="Input Username field" library="CommonFunctions">
-<arguments>
-<arg>${UserName}</arg>
-</arguments>
 <kw name="Input Text" library="AppiumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>${UserNameField}</arg>
-<arg>${element}</arg>
+<arg>${UserName}</arg>
 </arguments>
-<msg timestamp="20210211 20:50:34.519" level="INFO">Typing text '9999999996' into text field 'xpath=(//*[@class='android.widget.EditText'])[1]'</msg>
-<status status="PASS" starttime="20210211 20:50:34.516" endtime="20210211 20:50:34.905"></status>
+<msg timestamp="20210212 18:58:37.663" level="INFO">Typing text '9999999995' into text field 'xpath=(//*[@class='android.widget.EditText'])[1]'</msg>
+<status status="PASS" starttime="20210212 18:58:37.654" endtime="20210212 18:58:38.037"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:34.516" endtime="20210211 20:50:34.906"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210211 20:50:39.910" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210211 20:50:34.907" endtime="20210211 20:50:39.911"></status>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${OTPButton}</arg>
-</arguments>
-<msg timestamp="20210211 20:50:39.917" level="INFO">Clicking element 'xpath=//android.view.View[contains(@text,'Login With OTP')]'.</msg>
-<status status="PASS" starttime="20210211 20:50:39.912" endtime="20210211 20:50:40.433"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2s</arg>
-</arguments>
-<msg timestamp="20210211 20:50:42.442" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210211 20:50:40.434" endtime="20210211 20:50:42.443"></status>
-</kw>
-<kw name="Element status check" library="CommonFunctions">
-<arguments>
-<arg>${OTPAlert}</arg>
-<arg>OTP alert doesnt appear</arg>
-<arg>OTP alert appeared</arg>
-</arguments>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210211 20:50:47.461" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210211 20:50:42.450" endtime="20210211 20:50:47.462"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>${element}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
-<arguments>
-<arg>${element}</arg>
-</arguments>
-<status status="PASS" starttime="20210211 20:50:47.465" endtime="20210211 20:50:47.921"></status>
-</kw>
-<msg timestamp="20210211 20:50:47.922" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210211 20:50:47.463" endtime="20210211 20:50:47.923"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${fail_msg}</arg>
-<arg>Log</arg>
-<arg>${pass_msg}</arg>
-</arguments>
-<status status="PASS" starttime="20210211 20:50:47.923" endtime="20210211 20:50:47.924"></status>
-</kw>
-<status status="PASS" starttime="20210211 20:50:42.445" endtime="20210211 20:50:47.925"></status>
-</kw>
-<kw name="Input password field" library="CommonFunctions">
-<arguments>
-<arg>123456</arg>
-</arguments>
 <kw name="Input Text" library="AppiumLibrary">
 <doc>Types the given `text` into text field identified by `locator`.</doc>
 <arguments>
 <arg>${PasswordField}</arg>
-<arg>${element}</arg>
+<arg>${Password}</arg>
 </arguments>
-<msg timestamp="20210211 20:50:47.928" level="INFO">Typing text '123456' into text field 'xpath=(//*[@class='android.widget.EditText'])[2]'</msg>
-<status status="PASS" starttime="20210211 20:50:47.926" endtime="20210211 20:50:48.198"></status>
+<msg timestamp="20210212 18:58:38.043" level="INFO">Typing text 'password' into text field 'xpath=(//*[@class='android.widget.EditText'])[2]'</msg>
+<status status="PASS" starttime="20210212 18:58:38.038" endtime="20210212 18:58:38.756"></status>
 </kw>
-<status status="PASS" starttime="20210211 20:50:47.925" endtime="20210211 20:50:48.200"></status>
-</kw>
-<kw name="Element status check" library="CommonFunctions">
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
 <arguments>
-<arg>${InvCredential}</arg>
-<arg>Alert message doesnt appear for Invalid credentials</arg>
-<arg>Alert message appeared for Invalid credentials</arg>
+<arg>${LoginButton}</arg>
+</arguments>
+<msg timestamp="20210212 18:58:38.761" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@text,'LOGIN')]'.</msg>
+<status status="PASS" starttime="20210212 18:58:38.756" endtime="20210212 18:58:39.301"></status>
+</kw>
+<status status="PASS" starttime="20210212 18:58:32.641" endtime="20210212 18:58:39.302"></status>
+</kw>
+<kw name="BottomMenuClick" library="CommonFunctions">
+<arguments>
+<arg>${BottomMenuTaxReceipt}</arg>
 </arguments>
 <kw name="Sleep" library="BuiltIn">
 <doc>Pauses the test executed for the given time.</doc>
 <arguments>
-<arg>5s</arg>
+<arg>10s</arg>
 </arguments>
-<msg timestamp="20210211 20:50:53.204" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210211 20:50:48.201" endtime="20210211 20:50:53.205"></status>
+<msg timestamp="20210212 18:58:49.318" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20210212 18:58:39.303" endtime="20210212 18:58:49.320"></status>
 </kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>${element}</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
 <arguments>
 <arg>${element}</arg>
 </arguments>
-<kw name="Capture Page Screenshot" library="AppiumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20210211 20:50:54.242" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210211 20:50:53.573" endtime="20210211 20:50:54.243"></status>
+<msg timestamp="20210212 18:58:49.331" level="INFO">Clicking element '//android.view.View[contains(@text,'Tax Receipts')]'.</msg>
+<status status="PASS" starttime="20210212 18:58:49.321" endtime="20210212 18:58:49.690"></status>
 </kw>
-<msg timestamp="20210211 20:50:54.245" level="FAIL">ValueError: Element locator 'xpath=//android.view.View[contains(@text,'Invalid Credentials')]' did not match any elements.</msg>
-<status status="FAIL" starttime="20210211 20:50:53.209" endtime="20210211 20:50:54.246"></status>
+<status status="PASS" starttime="20210212 18:58:39.302" endtime="20210212 18:58:49.690"></status>
 </kw>
-<msg timestamp="20210211 20:50:54.246" level="INFO">${status} = False</msg>
-<status status="PASS" starttime="20210211 20:50:53.206" endtime="20210211 20:50:54.246"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Left Banner Swipe" library="CommonFunctions">
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
 <arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${fail_msg}</arg>
-<arg>Log</arg>
-<arg>${pass_msg}</arg>
+<arg>10s</arg>
 </arguments>
-<kw name="Fail" library="BuiltIn">
-<doc>Fails the test with the given message and optionally alters its tags.</doc>
+<msg timestamp="20210212 18:58:59.702" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20210212 18:58:49.692" endtime="20210212 18:58:59.702"></status>
+</kw>
+<kw name="Swipe" library="AppiumLibrary">
+<doc>Swipe from one point to another point, for an optional duration.</doc>
 <arguments>
-<arg>${fail_msg}</arg>
-<arg>Log</arg>
-<arg>${pass_msg}</arg>
+<arg>0</arg>
+<arg>1026</arg>
+<arg>800</arg>
+<arg>1026</arg>
 </arguments>
-<msg timestamp="20210211 20:50:54.249" level="INFO">Set tags 'Log' and 'Alert message appeared for Invalid credentials'.</msg>
-<msg timestamp="20210211 20:50:54.249" level="FAIL">Alert message doesnt appear for Invalid credentials</msg>
-<status status="FAIL" starttime="20210211 20:50:54.249" endtime="20210211 20:50:54.250"></status>
+<status status="PASS" starttime="20210212 18:58:59.703" endtime="20210212 18:59:01.342"></status>
 </kw>
-<status status="FAIL" starttime="20210211 20:50:54.247" endtime="20210211 20:50:54.250"></status>
+<status status="PASS" starttime="20210212 18:58:49.691" endtime="20210212 18:59:01.343"></status>
 </kw>
-<status status="FAIL" starttime="20210211 20:50:48.200" endtime="20210211 20:50:54.250"></status>
+<kw name="LeftMenuClick" library="CommonFunctions">
+<arguments>
+<arg>${LeftMenuHome}</arg>
+</arguments>
+<kw name="Sleep" library="BuiltIn">
+<doc>Pauses the test executed for the given time.</doc>
+<arguments>
+<arg>10s</arg>
+</arguments>
+<msg timestamp="20210212 18:59:11.358" level="INFO">Slept 10 seconds</msg>
+<status status="PASS" starttime="20210212 18:59:01.344" endtime="20210212 18:59:11.363"></status>
+</kw>
+<kw name="Click Element" library="AppiumLibrary">
+<doc>Click element identified by `locator`.</doc>
+<arguments>
+<arg>${element}</arg>
+</arguments>
+<msg timestamp="20210212 18:59:11.383" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@text,'Home')]'.</msg>
+<status status="PASS" starttime="20210212 18:59:11.365" endtime="20210212 18:59:11.944"></status>
+</kw>
+<status status="PASS" starttime="20210212 18:59:01.343" endtime="20210212 18:59:11.945"></status>
 </kw>
 <kw name="Close Application" library="AppiumLibrary" type="teardown">
 <doc>Closes the current application and also close webdriver session.</doc>
-<status status="PASS" starttime="20210211 20:50:54.252" endtime="20210211 20:50:54.610"></status>
+<status status="PASS" starttime="20210212 18:59:11.946" endtime="20210212 18:59:12.984"></status>
 </kw>
 <tags>
-<tag>Alert message appeared for Invalid credentials</tag>
-<tag>Log</tag>
-<tag>Login functionality</tag>
+<tag>Menu Verification</tag>
 </tags>
-<status status="FAIL" starttime="20210211 20:50:05.260" endtime="20210211 20:50:54.611" critical="yes">Alert message doesnt appear for Invalid credentials</status>
+<status status="PASS" starttime="20210212 18:58:06.828" endtime="20210212 18:59:12.985" critical="yes"></status>
 </test>
-<status status="FAIL" starttime="20210211 20:50:04.962" endtime="20210211 20:50:54.613"></status>
+<status status="PASS" starttime="20210212 18:58:06.498" endtime="20210212 18:59:12.986"></status>
 </suite>
-<status status="FAIL" starttime="20210211 20:50:04.957" endtime="20210211 20:50:54.616"></status>
+<status status="PASS" starttime="20210212 18:58:06.489" endtime="20210212 18:59:12.990"></status>
 </suite>
-<status status="FAIL" starttime="20210211 20:50:04.922" endtime="20210211 20:50:54.619"></status>
+<status status="PASS" starttime="20210212 18:58:06.453" endtime="20210212 18:59:12.993"></status>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1">Critical Tests</stat>
-<stat pass="0" fail="1">All Tests</stat>
+<stat pass="1" fail="0">Critical Tests</stat>
+<stat pass="1" fail="0">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1">Alert message appeared for Invalid credentials</stat>
-<stat pass="0" fail="1">Log</stat>
-<stat pass="0" fail="1">Login functionality</stat>
+<stat pass="1" fail="0">Menu Verification</stat>
 </tag>
 <suite>
-<stat pass="0" fail="1" id="s1" name="WV-MobieApp">WV-MobieApp</stat>
-<stat pass="0" fail="1" id="s1-s1" name="Testcase">WV-MobieApp.Testcase</stat>
-<stat pass="0" fail="1" id="s1-s1-s1" name="WV-app">WV-MobieApp.Testcase.WV-app</stat>
+<stat pass="1" fail="0" id="s1" name="WV-MobieApp">WV-MobieApp</stat>
+<stat pass="1" fail="0" id="s1-s1" name="Testcase">WV-MobieApp.Testcase</stat>
+<stat pass="1" fail="0" id="s1-s1-s1" name="WV-app">WV-MobieApp.Testcase.WV-app</stat>
 </suite>
 </statistics>
 <errors>

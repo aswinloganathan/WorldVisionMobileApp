@@ -2,8 +2,8 @@
 RemoteURL="http://127.0.0.1:4723/wd/hub"
 PlatformName="Android"
 PlatformVersion="9.0"
-DeviceName="emulator-5556"
-ApplicationPath="D:/TestLeaf/Maven/WV-MobieApp/Application/app-debug_feb_09.apk"
+DeviceName="emulator-5554"
+ApplicationPath="C:/Users/aswin/Downloads/app-debug_feb_09.apk"
 ActivityName="worldvision.india.MainActivity"
 PackageName="worldvision.india"
 
@@ -52,12 +52,34 @@ LeftMenuCart="xpath=//android.widget.Button[contains(@text,'Cart')]"
 LeftMenuLogout="xpath=//android.widget.Button[contains(@text,'Logout')]"
 
 #Bottom Menu
-BottomMenuHome="//android.view.View[contains(@text,'HOME')]"
-BottomMenuMyChild="//android.view.View[contains(@text,'My Child')]"
-BottomMenuMakePayments="//android.view.View[contains(@text,'Make Payments')]"
-BottomMenuTaxReceipt="//android.view.View[contains(@text,'Tax Receipts')]"
+BottomMenuHome="xpath=//android.view.View[contains(@text,'HOME')]"
+BottomMenuMyChild="xpath=//android.view.View[contains(@text,'My Child')]"
+BottomMenuMakePayments="xpath=//android.view.View[contains(@text,'Make Payments')]"
+BottomMenuTaxReceipt="xpath=//android.view.View[contains(@text,'Tax Receipts')]"
 
 
 #Logout
 #LogoutButton="//android.view.View//android.view.View[2]//android.widget.Button[contains(@text,'Logout')]"
-LogoutButton="//android.widget.Button[contains(@text,'Logout')]"
+LogoutButton="xpath=//android.widget.Button[contains(@text,'Logout')]"
+
+
+#Jeevan Sparsh page
+JeevanBanner="xpath=//android.view.View[Contains(@text,'Jeevan Sparsh')]"
+JeevanArticlesList=["1. Letter from the National Director", "2. Blessed beyond measure", "3. Weaving a new future", "4. The joy of water security", "5. Phases of Child Sponsorship", "6. Alfy’s Desk", "7. A sponsor’s commitment", "8. A former sponsored child gives back", "9. Cyclone Fani"]
+
+#FQA Page
+FQAlist=["Child sponsorship", "Worldvision india", "payments"]
+NextButton="xpath=//android.widget.Button[contains(@text,'Next slide')]"
+
+#ContactUS
+ContactUs="xpath=(//android.view.View[contains(@text,'Contact Us')])[4]"
+ContactUsForm=["edit-name-", "edit-email-", "edit-contact-", "edit-query-type-styled", "edit-message"]
+ContactUsSponcerBtn="//android.view.View[@resource-id='edit-are-you-a-partner-']"
+ContactUsSubmit="//android.widget.Button[@resource-id='edit-actions-submit']"
+
+#FormName2="id=android.widget.EditText:id/edit-name-"
+
+#MyProfile Page
+MyProfile="xpath=//android.widget.Image[contains(@text,'avatar.png')]"
+
+

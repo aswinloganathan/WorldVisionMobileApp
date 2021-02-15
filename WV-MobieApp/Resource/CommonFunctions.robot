@@ -1,6 +1,5 @@
 *** Settings *** 
-#Test Setup    Open Worldvision
-Library           AppiumLibrary
+Library    AppiumLibrary
 Variables    WebElements.py
 
 *** Keywords ***
@@ -79,20 +78,24 @@ Click Logout button
 Vertical swipe
     Swipe    575    1474    565    479
     
-Right Swipe
+Right to left Swipe
     Sleep    5s    
     Swipe    1004    1055    298    1050
     
 Left Banner Swipe
     Sleep    10s    
-    Swipe    0    1026    800    1026
+    Swipe    0    1026    800    1026    
+    
+Click MyProfile
+    Sleep    5s   
+    Click Element    ${MyProfile}
     
 Element status check
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
     
-    Sleep    5s
+    Sleep    10s
     ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
-    Run Keyword If    '${status}'!='True'    Fail    ${fail_msg}    Log    ${pass_msg}
+    Run Keyword If    '${status}'!='True'    Fail    ${fail_msg}    Log   ${pass_msg}
 
 Element Should Not Be Visible
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
@@ -136,5 +139,46 @@ BottomMenuClick
     [Arguments]    ${element}
     
     Sleep    10s    
-    Click Element    ${element}  
+    Click Element    ${element}
     
+
+Jeevan articles check    
+    [Arguments]    @{ListOfElements}
+    
+    Sleep    10s    
+    FOR    ${element}    IN    @{ListOfElements}
+        Right to left Swipe        
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.view.View[contains(@text,'${element}')]    
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Sleep    2s            
+    END
+    
+FQA menus check    
+    [Arguments]    @{ListOfElements}
+    
+    Sleep    10s    
+    FOR    ${element}    IN    @{ListOfElements}
+        Right to left Swipe
+        Click Element    ${NextButton}
+        Sleep    5s    
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    id=${element}    
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Sleep    2s            
+    END
+    
+ContactUs Form check
+    [Arguments]    @{ListOfElements}
+    
+    Sleep    15s    
+    FOR    ${element}    IN    @{ListOfElements}
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.EditText[@resource-id='${element}']    
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Sleep    2s            
+    END
+    Element status check    ${ContactUsSponcerBtn}    Donor/Sponsor radio button is not visible    Donor/Sponsor radio button is visible
+    
+    
+ContactUs Swipe to View Form
+    Swipe    515    1731    545    262
+    Sleep    15s        
+    Swipe    535    1393    530    257

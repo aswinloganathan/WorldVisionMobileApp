@@ -1,8 +1,8 @@
 *** Settings ***
-Library    AppiumLibrary    
+Library    AppiumLibrary   
 Resource    ../Resource/CommonFunctions.robot
 Test Setup    Set appium details
-Test Teardown    Close Application
+#Test Teardown    Close Application
 
 
 *** Test Cases ***
@@ -17,7 +17,7 @@ Open WV application
                                 
     Open Application from menu    
     Sleep    5s    
-    Right Swipe        
+    Right to left Swipe       
     Click Skip    
     Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
     
@@ -28,7 +28,7 @@ To verify the banner scroll on the welcome screen
     Open Application from menu   
     Sleep    10s    
     FOR    ${element}    IN RANGE    1    4            
-        Right Swipe
+        Right to left Swipe
     END               
     Click login button           
     Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page 
@@ -40,7 +40,7 @@ To verify the Login screen
     Open Application from menu   
     Sleep    10s    
     FOR    ${element}    IN RANGE    1    4           
-        Right Swipe
+        Right to left Swipe
     END            
     Click login button                
     Element status check    ${UserNameField}    Page doesnt contain username field    Page contain username field
@@ -166,8 +166,8 @@ To verify the functionality of navigating to my givings page
     
     Open Application from menu
     Click Skip
-    Login Function    ${UserName}    ${Password}    
     Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
+    Login Function    ${UserName}    ${Password}        
     Left Banner Swipe
     LeftMenuClick    ${LeftMenuSponsorChild}
     
@@ -180,10 +180,59 @@ To verify the functionality of navigating to Tax receipt page
     Left Banner Swipe  
     LeftMenuClick    ${LeftMenuTax}
     
+
+To verify the functionality of navigating to Jeevan sparsh
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
+    Login Function    ${UserName}    ${Password}    
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuJeevan}
+    Element status check    ${JeevanBanner}    Jeevan Sparsh banner is not visible    Jeevan Sparsh banner is visible
+    Jeevan articles check    @{JeevanArticlesList}
+    
+To verify the functionality of navigating to faqs page
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuFQA}
+    #need to confirm banner
+    FQA menus check    @{FQAlist}
+    
+To verify the functionality of navigating to contact us page
+    [Tags]    Menu Verification
+
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuContacts}    
+    #need to confirm banner
+    Element status check    ${ContactUs}    Contact us page is not visible    Contact us page is visible
+    Sleep    10s    
+    ContactUs Swipe to View Form
+    ContactUs Form check    @{ContactUsForm}
     
     
+To verify the navigation to profile page from menu
+    [Tags]    Menu Verification
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    Click MyProfile
+    
+    
+    
 
-
-
+    
+    
+    
 
     

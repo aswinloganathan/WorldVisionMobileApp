@@ -1,6 +1,10 @@
 *** Settings ***
-Library    AppiumLibrary   
+Library    AppiumLibrary
 Resource    ../Resource/CommonFunctions.robot
+Resource    ../Resource/MyProfilePage.robot
+Resource    ../Resource/TaxReceiptPage.robot
+Library    DateTime    
+
 Test Setup    Set appium details
 #Test Teardown    Close Application
 
@@ -13,7 +17,7 @@ Install new application
     Install new application
 
 Open WV application
-    [Tags]    To verify the welcome screen    
+    [Tags]    To verify the welcome screen  
                                 
     Open Application from menu    
     Sleep    5s    
@@ -54,6 +58,15 @@ To verify login in APP by Website registered user
     Click Skip    
     Login Function    ${UserName}    ${Password}    
     Element status check    ${User}    Username was not displayed on HomePage    Username dispalyed on HomePage
+    Logout Function                
+    
+To verify login in APP by Landing page registered user
+    [Tags]    Login functionality
+            
+    Open Application from menu        
+    Click Skip
+    Login Function    ${LPUsername}    ${LPPassword}    
+    Element status check    ${LPUser}    Username was not displayed on HomePage    Username dispalyed on HomePage
     Logout Function                
 
 To verify the Logout functionality
@@ -116,6 +129,19 @@ To verify the password field structure
     Sleep    5s    
     ${password_got}=    Get Element Attribute    ${PasswordField}    text
     Should Not Be Equal As Strings    ${password_got}    ${Password}
+    
+To verify the otp functionality with invalid usename
+    [Tags]    Login functionality
+    
+    Open Application from menu        
+    Click Skip
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
+    Input Username field    ${UserName}
+    Sleep    5s
+    Click Element    ${OTPButton}
+    Sleep    2s    
+    Element status check    ${InvCredential}    Alert message doesnt appear for Invalid credentials    Alert message appeared for Invalid credentials
+    
     
 To verify the login functionality with invalid OTP
     [Tags]    Login functionality
@@ -229,15 +255,27 @@ To verify the navigation to profile page from menu
     Click MyProfile
     MyProfile Details Check    @{ProfileDetails}
     Edit Profile    ${MyProfileLastName}
+        
+To verify the uninstall functionality of mobile app
+    [Tags]    Uninstall application
+    
+    Open Worldvision To Reset
+    Reset Application
+    Remove Application    ${PackageName}
+    
+Verifying the Tax receipt Functionality Of the Donated user
+    [Tags]    Tax Functionality Page
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuTax}  
+    Select From and To date
+    Click Tax Submit Button
+    Element status check    ${TaxDownloadRcpt}    Tax receipt Download button is not visible    Tax receipt Download button is visible        
     
     
     
     
-    
-    
-
-    
-    
-    
-
     

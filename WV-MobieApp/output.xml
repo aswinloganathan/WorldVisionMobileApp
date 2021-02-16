@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 3.2.2 (Python 3.8.6 on win32)" generated="20210216 11:27:35.446" rpa="false">
+<robot generator="Robot 3.2.2 (Python 3.8.6 on win32)" generated="20210216 18:59:50.481" rpa="false">
 <suite id="s1" name="WV-MobieApp" source="C:\Users\aswin\git\WorldVisionMobileApp\WV-MobieApp">
 <suite id="s1-s1" name="Testcase" source="C:\Users\aswin\git\WorldVisionMobileApp\WV-MobieApp\Testcase">
 <suite id="s1-s1-s1" name="WV-app" source="C:\Users\aswin\git\WorldVisionMobileApp\WV-MobieApp\Testcase\WV-app.robot">
-<test id="s1-s1-s1-t1" name="To verify the navigation to profile page from menu">
+<test id="s1-s1-s1-t1" name="Verifying the Tax receipt Functionality Of the Donated user">
 <kw name="Set appium details" library="CommonFunctions" type="setup">
 <kw name="Open Application" library="AppiumLibrary">
 <doc>Opens a new application to given Appium server.
@@ -20,466 +20,43 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <arg>automationName=UiAutomator2</arg>
 <arg>newCommandTimeout=2500</arg>
 </arguments>
-<status status="PASS" starttime="20210216 11:27:35.904" endtime="20210216 11:27:46.728"></status>
+<status status="PASS" starttime="20210216 18:59:50.870" endtime="20210216 19:00:02.068"></status>
 </kw>
-<status status="PASS" starttime="20210216 11:27:35.903" endtime="20210216 11:27:46.728"></status>
+<status status="PASS" starttime="20210216 18:59:50.869" endtime="20210216 19:00:02.069"></status>
 </kw>
-<kw name="Open Application from menu" library="CommonFunctions">
-<kw name="Vertical swipe" library="CommonFunctions">
-<kw name="Swipe" library="AppiumLibrary">
-<doc>Swipe from one point to another point, for an optional duration.</doc>
+<kw name="Get Current Date" library="DateTime">
+<doc>Returns current local or UTC time with an optional increment.</doc>
 <arguments>
-<arg>575</arg>
-<arg>1474</arg>
-<arg>565</arg>
-<arg>479</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:27:46.732" endtime="20210216 11:27:48.350"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:27:46.730" endtime="20210216 11:27:48.351"></status>
-</kw>
-<kw name="Click WV app" library="CommonFunctions">
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${WvIcon}</arg>
-</arguments>
-<msg timestamp="20210216 11:27:48.358" level="INFO">Clicking element 'xpath=(//android.widget.TextView[@content-desc="worldvision"])[1]'.</msg>
-<status status="PASS" starttime="20210216 11:27:48.353" endtime="20210216 11:27:48.934"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:27:48.352" endtime="20210216 11:27:48.935"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:27:46.729" endtime="20210216 11:27:48.936"></status>
-</kw>
-<kw name="Click Skip" library="CommonFunctions">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>15s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:03.950" level="INFO">Slept 15 seconds</msg>
-<status status="PASS" starttime="20210216 11:27:48.938" endtime="20210216 11:28:03.951"></status>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${SkipButton}</arg>
-</arguments>
-<msg timestamp="20210216 11:28:03.957" level="INFO">Clicking element 'xpath=//android.view.View[contains(@text,'Skip')]'.</msg>
-<status status="PASS" starttime="20210216 11:28:03.952" endtime="20210216 11:28:04.240"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:27:48.937" endtime="20210216 11:28:04.241"></status>
-</kw>
-<kw name="Login Function" library="CommonFunctions">
-<arguments>
-<arg>${UserName}</arg>
-<arg>${Password}</arg>
-</arguments>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:09.254" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:04.243" endtime="20210216 11:28:09.255"></status>
-</kw>
-<kw name="Input Text" library="AppiumLibrary">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>${UserNameField}</arg>
-<arg>${UserName}</arg>
-</arguments>
-<msg timestamp="20210216 11:28:09.271" level="INFO">Typing text '9999999995' into text field 'xpath=(//*[@class='android.widget.EditText'])[1]'</msg>
-<status status="PASS" starttime="20210216 11:28:09.258" endtime="20210216 11:28:09.810"></status>
-</kw>
-<kw name="Input Text" library="AppiumLibrary">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>${PasswordField}</arg>
-<arg>${Password}</arg>
-</arguments>
-<msg timestamp="20210216 11:28:09.816" level="INFO">Typing text 'password' into text field 'xpath=(//*[@class='android.widget.EditText'])[2]'</msg>
-<status status="PASS" starttime="20210216 11:28:09.810" endtime="20210216 11:28:10.578"></status>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${LoginButton}</arg>
-</arguments>
-<msg timestamp="20210216 11:28:10.583" level="INFO">Clicking element 'xpath=//android.widget.Button[contains(@text,'LOGIN')]'.</msg>
-<status status="PASS" starttime="20210216 11:28:10.578" endtime="20210216 11:28:11.139"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:04.242" endtime="20210216 11:28:11.140"></status>
-</kw>
-<kw name="Left Banner Swipe" library="CommonFunctions">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>10s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:21.153" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:11.142" endtime="20210216 11:28:21.155"></status>
-</kw>
-<kw name="Swipe" library="AppiumLibrary">
-<doc>Swipe from one point to another point, for an optional duration.</doc>
-<arguments>
-<arg>0</arg>
-<arg>1026</arg>
-<arg>800</arg>
-<arg>1026</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:28:21.156" endtime="20210216 11:28:22.907"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:11.141" endtime="20210216 11:28:22.908"></status>
-</kw>
-<kw name="Click MyProfile" library="CommonFunctions">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:27.914" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:22.909" endtime="20210216 11:28:27.915"></status>
-</kw>
-<kw name="Click Element" library="AppiumLibrary">
-<doc>Click element identified by `locator`.</doc>
-<arguments>
-<arg>${MyProfile}</arg>
-</arguments>
-<msg timestamp="20210216 11:28:27.922" level="INFO">Clicking element 'xpath=//android.widget.Image[contains(@text,'avatar.png')]'.</msg>
-<status status="PASS" starttime="20210216 11:28:27.916" endtime="20210216 11:28:28.392"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:22.908" endtime="20210216 11:28:28.393"></status>
-</kw>
-<kw name="MyProfile Details Check" library="CommonFunctions">
-<arguments>
-<arg>@{ProfileDetails}</arg>
-</arguments>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>10s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:38.403" level="INFO">Slept 10 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:28.394" endtime="20210216 11:28:38.403"></status>
-</kw>
-<kw name="${element} IN [ @{ListOfElements} ]" type="for">
-<kw name="${element} = edit-field-title-0-value" type="foritem">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:43.408" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:38.405" endtime="20210216 11:28:43.410"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
+<arg>result_format=%Y %b %d</arg>
 </arguments>
 <assign>
-<var>${status}</var>
+<var>${CurrentDate}</var>
 </assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
+<msg timestamp="20210216 19:00:02.071" level="INFO">${CurrentDate} = 2021 Feb 16</msg>
+<status status="PASS" starttime="20210216 19:00:02.070" endtime="20210216 19:00:02.071"></status>
+</kw>
+<kw name="Convert Date" library="DateTime">
+<doc>Converts between supported `date formats`.</doc>
 <arguments>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:28:43.422" endtime="20210216 11:28:45.047"></status>
-</kw>
-<msg timestamp="20210216 11:28:45.047" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210216 11:28:43.412" endtime="20210216 11:28:45.047"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${element} is not visible</arg>
-<arg>Log</arg>
-<arg>${element} is visible</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:28:45.048" endtime="20210216 11:28:45.049"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:47.056" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:45.050" endtime="20210216 11:28:47.057"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:38.405" endtime="20210216 11:28:47.059"></status>
-</kw>
-<kw name="${element} = edit-field-first-name-0-value" type="foritem">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:52.068" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:47.065" endtime="20210216 11:28:52.070"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
+<arg>${CurrentDate}</arg>
+<arg>datetime</arg>
 </arguments>
 <assign>
-<var>${status}</var>
+<var>${todayDate}</var>
 </assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
-<arguments>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:28:52.079" endtime="20210216 11:28:53.626"></status>
-</kw>
-<msg timestamp="20210216 11:28:53.627" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210216 11:28:52.074" endtime="20210216 11:28:53.627"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${element} is not visible</arg>
-<arg>Log</arg>
-<arg>${element} is visible</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:28:53.628" endtime="20210216 11:28:53.629"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2s</arg>
-</arguments>
-<msg timestamp="20210216 11:28:55.630" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:53.630" endtime="20210216 11:28:55.631"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:47.060" endtime="20210216 11:28:55.632"></status>
-</kw>
-<kw name="${element} = edit-field-last-name-0-value" type="foritem">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:29:00.638" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:28:55.635" endtime="20210216 11:29:00.640"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
-<arguments>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:29:00.646" endtime="20210216 11:29:02.066"></status>
-</kw>
-<msg timestamp="20210216 11:29:02.067" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210216 11:29:00.642" endtime="20210216 11:29:02.067"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${element} is not visible</arg>
-<arg>Log</arg>
-<arg>${element} is visible</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:29:02.068" endtime="20210216 11:29:02.068"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2s</arg>
-</arguments>
-<msg timestamp="20210216 11:29:04.072" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210216 11:29:02.069" endtime="20210216 11:29:04.074"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:55.633" endtime="20210216 11:29:04.075"></status>
-</kw>
-<kw name="${element} = edit-field-registeraddress-0-value" type="foritem">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:29:09.092" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:29:04.079" endtime="20210216 11:29:09.094"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
-<arguments>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:29:09.101" endtime="20210216 11:29:10.552"></status>
-</kw>
-<msg timestamp="20210216 11:29:10.552" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210216 11:29:09.097" endtime="20210216 11:29:10.553"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${element} is not visible</arg>
-<arg>Log</arg>
-<arg>${element} is visible</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:29:10.553" endtime="20210216 11:29:10.554"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2s</arg>
-</arguments>
-<msg timestamp="20210216 11:29:12.557" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210216 11:29:10.554" endtime="20210216 11:29:12.558"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:29:04.077" endtime="20210216 11:29:12.559"></status>
-</kw>
-<kw name="${element} = edit-field-pin-code-0-value" type="foritem">
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>5s</arg>
-</arguments>
-<msg timestamp="20210216 11:29:17.578" level="INFO">Slept 5 seconds</msg>
-<status status="PASS" starttime="20210216 11:29:12.562" endtime="20210216 11:29:17.579"></status>
-</kw>
-<kw name="Run Keyword And Return Status" library="BuiltIn">
-<doc>Runs the given keyword with given arguments and returns the status as a Boolean value.</doc>
-<arguments>
-<arg>Element Should Be Visible</arg>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<assign>
-<var>${status}</var>
-</assign>
-<kw name="Element Should Be Visible" library="AppiumLibrary">
-<doc>Verifies that element identified with locator is visible.</doc>
-<arguments>
-<arg>xpath=//android.widget.EditText[@resource-id='${element}']</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:29:17.582" endtime="20210216 11:29:18.605"></status>
-</kw>
-<msg timestamp="20210216 11:29:18.606" level="INFO">${status} = True</msg>
-<status status="PASS" starttime="20210216 11:29:17.579" endtime="20210216 11:29:18.606"></status>
-</kw>
-<kw name="Run Keyword If" library="BuiltIn">
-<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
-<arguments>
-<arg>'${status}'!='True'</arg>
-<arg>Fail</arg>
-<arg>${element} is not visible</arg>
-<arg>Log</arg>
-<arg>${element} is visible</arg>
-</arguments>
-<status status="PASS" starttime="20210216 11:29:18.607" endtime="20210216 11:29:18.608"></status>
-</kw>
-<kw name="Sleep" library="BuiltIn">
-<doc>Pauses the test executed for the given time.</doc>
-<arguments>
-<arg>2s</arg>
-</arguments>
-<msg timestamp="20210216 11:29:20.610" level="INFO">Slept 2 seconds</msg>
-<status status="PASS" starttime="20210216 11:29:18.609" endtime="20210216 11:29:20.611"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:29:12.560" endtime="20210216 11:29:20.612"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:38.404" endtime="20210216 11:29:20.613"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:28:28.393" endtime="20210216 11:29:20.614"></status>
-</kw>
-<kw name="Edit Profile" library="CommonFunctions">
-<arguments>
-<arg>${MyProfileLastName}</arg>
-</arguments>
-<kw name="Generate Random String" library="String">
-<doc>Generates a string with a desired ``length`` from the given ``chars``.</doc>
-<arguments>
-<arg>length=8</arg>
-<arg>chars=[LETTERS]</arg>
-</arguments>
-<assign>
-<var>${LastName}</var>
-</assign>
-<msg timestamp="20210216 11:29:20.625" level="INFO">${LastName} = fjyCIWxA</msg>
-<status status="PASS" starttime="20210216 11:29:20.621" endtime="20210216 11:29:20.625"></status>
-</kw>
-<kw name="Clear and Input Text" library="CommonFunctions">
-<arguments>
-<arg>${element}</arg>
-<arg>${LastName}</arg>
-</arguments>
-<kw name="Clear Text" library="AppiumLibrary">
-<doc>Clears the text field identified by `locator`.</doc>
-<arguments>
-<arg>${Field}</arg>
-</arguments>
-<msg timestamp="20210216 11:29:20.647" level="INFO">Clear text field '//android.widget.EditText[contains(@resource-id,'edit-field-last-name')]'</msg>
-<status status="PASS" starttime="20210216 11:29:20.631" endtime="20210216 11:29:21.699"></status>
-</kw>
-<kw name="Input Text" library="AppiumLibrary">
-<doc>Types the given `text` into text field identified by `locator`.</doc>
-<arguments>
-<arg>${Field}</arg>
-<arg>${Data}</arg>
-</arguments>
-<msg timestamp="20210216 11:29:21.705" level="INFO">Typing text 'fjyCIWxA' into text field '//android.widget.EditText[contains(@resource-id,'edit-field-last-name')]'</msg>
-<status status="PASS" starttime="20210216 11:29:21.700" endtime="20210216 11:29:22.892"></status>
-</kw>
-<status status="PASS" starttime="20210216 11:29:20.627" endtime="20210216 11:29:22.893"></status>
-</kw>
-<kw name="Scroll Down" library="AppiumLibrary">
-<doc>Scrolls down to element</doc>
-<arguments>
-<arg>${MyProfileSaveBtn}</arg>
-</arguments>
-<kw name="Capture Page Screenshot" library="AppiumLibrary">
-<doc>Takes a screenshot of the current page and embeds it into the log.</doc>
-<msg timestamp="20210216 11:29:23.544" level="INFO" html="yes">&lt;/td&gt;&lt;/tr&gt;&lt;tr&gt;&lt;td colspan="3"&gt;&lt;a href="appium-screenshot-1.png"&gt;&lt;img src="appium-screenshot-1.png" width="800px"&gt;&lt;/a&gt;</msg>
-<status status="PASS" starttime="20210216 11:29:22.958" endtime="20210216 11:29:23.545"></status>
-</kw>
-<msg timestamp="20210216 11:29:23.556" level="FAIL">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Cannot rewrite element locator 'edit-submit' to its complete form, because the current application package name is unknown. Consider providing the app package name or changing the locator to '&lt;package_name&gt;:id/edit-submit' format.
-</msg>
-<status status="FAIL" starttime="20210216 11:29:22.894" endtime="20210216 11:29:23.557"></status>
-</kw>
-<status status="FAIL" starttime="20210216 11:29:20.616" endtime="20210216 11:29:23.557"></status>
+<msg timestamp="20210216 19:00:02.072" level="FAIL">ValueError: Invalid timestamp '2021 Feb 16'.</msg>
+<status status="FAIL" starttime="20210216 19:00:02.071" endtime="20210216 19:00:02.072"></status>
 </kw>
 <tags>
-<tag>Menu Verification</tag>
+<tag>Tax Functionality Page</tag>
 </tags>
-<status status="FAIL" starttime="20210216 11:27:35.902" endtime="20210216 11:29:23.558" critical="yes">WebDriverException: Message: An unknown server-side error occurred while processing the command. Original error: Cannot rewrite element locator 'edit-submit' to its complete form, because the current application package name is unknown. Consider providing the app package name or changing the locator to '&lt;package_name&gt;:id/edit-submit' format.
-</status>
+<status status="FAIL" starttime="20210216 18:59:50.868" endtime="20210216 19:00:02.073" critical="yes">ValueError: Invalid timestamp '2021 Feb 16'.</status>
 </test>
-<status status="FAIL" starttime="20210216 11:27:35.543" endtime="20210216 11:29:23.560"></status>
+<status status="FAIL" starttime="20210216 18:59:50.563" endtime="20210216 19:00:02.075"></status>
 </suite>
-<status status="FAIL" starttime="20210216 11:27:35.539" endtime="20210216 11:29:23.563"></status>
+<status status="FAIL" starttime="20210216 18:59:50.559" endtime="20210216 19:00:02.078"></status>
 </suite>
-<status status="FAIL" starttime="20210216 11:27:35.505" endtime="20210216 11:29:23.565"></status>
+<status status="FAIL" starttime="20210216 18:59:50.529" endtime="20210216 19:00:02.081"></status>
 </suite>
 <statistics>
 <total>
@@ -487,7 +64,7 @@ Please check https://github.com/appium/appium/blob/master/docs/en/writing-runnin
 <stat pass="0" fail="1">All Tests</stat>
 </total>
 <tag>
-<stat pass="0" fail="1">Menu Verification</stat>
+<stat pass="0" fail="1">Tax Functionality Page</stat>
 </tag>
 <suite>
 <stat pass="0" fail="1" id="s1" name="WV-MobieApp">WV-MobieApp</stat>

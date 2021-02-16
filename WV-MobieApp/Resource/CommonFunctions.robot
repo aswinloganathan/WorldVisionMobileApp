@@ -1,6 +1,7 @@
 *** Settings *** 
 Library    AppiumLibrary
 Library    String    
+Library    DateTime    
 Variables    WebElements.py
 
 *** Keywords ***
@@ -22,6 +23,18 @@ Set appium details
     ...    deviceName=${DEVICE_NAME}
     ...    automationName=UiAutomator2
     ...    newCommandTimeout=2500
+
+Open Worldvision To Reset
+    Open Application   ${RemoteURL}
+    ...    platformName=${PlatformName}
+    ...    platformVersion=${PlatformVersion}
+    ...    deviceName=${DeviceName}
+    ...    automationName=UiAutomator2
+    ...    newCommandTimeout=2500
+    ...    appActivity=${ActivityName}
+    ...    appPackage=${PackageName}
+    ...    app=${ApplicationPath}
+    ...    noReset=false
 
 Install new application    
     Install App    ${ApplicationPath}    ${PackageName}
@@ -56,7 +69,7 @@ Clear field text
     [Arguments]    ${field}
     
     Clear Text    ${field}
-
+    
 Logout Function       
     Left banner Swipe
     Sleep    10s    
@@ -85,11 +98,7 @@ Right to left Swipe
     
 Left Banner Swipe
     Sleep    10s    
-    Swipe    0    1026    800    1026    
-    
-Click MyProfile
-    Sleep    5s   
-    Click Element    ${MyProfile}
+    Swipe    0    1026    800    1026        
     
 Element status check
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
@@ -182,46 +191,19 @@ ContactUs Form check
 ContactUs Swipe to View Form
     Swipe    515    1731    545    262
     Sleep    15s        
-    Swipe    535    1393    530    257
-    
-MyProfile Details Check
-    [Arguments]    @{ListOfElements}
-    
-    Sleep    10s    
-    FOR    ${element}    IN    @{ListOfElements}                
-        Sleep    5s    
-        #Scroll Down    xpath=//android.widget.EditText[@resource-id='${element}']        
-        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.EditText[@resource-id='${element}']
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
-        Sleep    2s            
-    END
+    Swipe    535    1393    530    257    
     
 Clear and Input Text
     [Arguments]    ${Field}    ${Data}
-    
-    Clear Text    ${Field}
+        
+    Sleep    2s    
+    Clear Text    ${Field}  
     Input Text    ${Field}    ${Data}
 
-Edit Profile
-    [Arguments]    ${element}        
+Today date
+    ${CurrentDate}=    Get Current Date    result_format=%Y-%m-%d
+    ${todayDate}=    Convert Date    ${CurrentDate}    datetime
     
-    ${LastName}=    Generate Random String    length=8    chars=[LETTERS]    
-    Clear and Input Text    ${element}    ${LastName}  
-        
+    [Return]    ${todayDate.day}    ${todayDate.month}    ${todayDate.year}
     
-    Scroll Down    ${MyProfileSaveBtn}
-    Click Element    ${MyProfileSaveBtn}
-    
-    Sleep    15s    
-    
-    ${lastNameAfter}=    Get Text    ${element}
-    
-    Should Be Equal As Strings    ${LastName}    ${lastNameAfter}
-
-Scroll Till Element Found
-    
-    FOR    ${element}    IN RANGE    1    10
-        ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${MyProfileSaveBtn}    
-        Run Keyword If    '${status}'=='True'    Log      
-    END
  

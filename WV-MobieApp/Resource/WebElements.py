@@ -11,6 +11,11 @@ PackageName="worldvision.india"
 UserName="9999999995"
 Password="password"
 
+#Landing Page Login Credentials
+LPUsername="logimohan@gmail.com"
+LPPassword="logi"
+LPUser="xpath=//android.view.View[contains(@text,'Logi')]"
+
 InvalidUserName="6666666666"
 InvalidPassword="asdhgasldhaslj"
 
@@ -83,6 +88,24 @@ ContactUsSubmit="//android.widget.Button[@resource-id='edit-actions-submit']"
 MyProfile="xpath=//android.widget.Image[contains(@text,'avatar.png')]"
 ProfileDetails=["edit-field-title-0-value", "edit-field-first-name-0-value", "edit-field-last-name-0-value", "edit-field-registeraddress-0-value", "edit-field-pin-code-0-value"]
 #ProfileDetails=["edit-field-title", "edit-field-first-name", "edit-field-last-name", "edit-field-gender", "edit-field-registeraddress", "edit-field-pin-code"]
-MyProfileLastName="//android.widget.EditText[contains(@resource-id,'edit-field-last-name')]"
-MyProfileSaveBtn="id=edit-submit"
+MyProfileLastName="xpath=//android.widget.EditText[@resource-id='edit-field-last-name-0-value']"
+MyProfileSaveBtn="xpath=//android.widget.Button[@resource-id='edit-submit']"
+
+#TaxReceiptPage
+
+TaxFromDate="xpath=//android.view.View[@resource-id='edit-created-min']"
+TaxFromMonth="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[1]"
+SelectTaxFromMonth="xpath=//android.widget.CheckedTextView[@text='Feb']"
+TaxFromYear="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[2]"
+SelectTaxFromYear="xpath=//android.widget.CheckedTextView[@text='2021']"
+SelectTaxFromDay="xpath=//android.view.View[@text='1']"
+
+TaxToDate="xpath=//android.widget.EditText[@resource-id='edit-created-max']"
+TaxToMonth="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[1]"
+TaxToYear="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[2]"
+
+TaxSubmitBtn="xpath=//android.widget.EditText[@resource-id='generate_tax']"
+TaxDownloadRcpt="xpath=//android.widget.Button[@resource-id='order_download']"
+
+SelectFromDate=""
 

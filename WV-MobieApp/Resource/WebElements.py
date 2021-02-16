@@ -81,5 +81,8 @@ ContactUsSubmit="//android.widget.Button[@resource-id='edit-actions-submit']"
 
 #MyProfile Page
 MyProfile="xpath=//android.widget.Image[contains(@text,'avatar.png')]"
-
+ProfileDetails=["edit-field-title-0-value", "edit-field-first-name-0-value", "edit-field-last-name-0-value", "edit-field-registeraddress-0-value", "edit-field-pin-code-0-value"]
+#ProfileDetails=["edit-field-title", "edit-field-first-name", "edit-field-last-name", "edit-field-gender", "edit-field-registeraddress", "edit-field-pin-code"]
+MyProfileLastName="//android.widget.EditText[contains(@resource-id,'edit-field-last-name')]"
+MyProfileSaveBtn="id=edit-submit"
 

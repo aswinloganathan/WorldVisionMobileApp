@@ -1,5 +1,6 @@
 *** Settings *** 
 Library    AppiumLibrary
+Library    String    
 Variables    WebElements.py
 
 *** Keywords ***
@@ -182,3 +183,45 @@ ContactUs Swipe to View Form
     Swipe    515    1731    545    262
     Sleep    15s        
     Swipe    535    1393    530    257
+    
+MyProfile Details Check
+    [Arguments]    @{ListOfElements}
+    
+    Sleep    10s    
+    FOR    ${element}    IN    @{ListOfElements}                
+        Sleep    5s    
+        #Scroll Down    xpath=//android.widget.EditText[@resource-id='${element}']        
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.EditText[@resource-id='${element}']
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Sleep    2s            
+    END
+    
+Clear and Input Text
+    [Arguments]    ${Field}    ${Data}
+    
+    Clear Text    ${Field}
+    Input Text    ${Field}    ${Data}
+
+Edit Profile
+    [Arguments]    ${element}        
+    
+    ${LastName}=    Generate Random String    length=8    chars=[LETTERS]    
+    Clear and Input Text    ${element}    ${LastName}  
+        
+    
+    Scroll Down    ${MyProfileSaveBtn}
+    Click Element    ${MyProfileSaveBtn}
+    
+    Sleep    15s    
+    
+    ${lastNameAfter}=    Get Text    ${element}
+    
+    Should Be Equal As Strings    ${LastName}    ${lastNameAfter}
+
+Scroll Till Element Found
+    
+    FOR    ${element}    IN RANGE    1    10
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${MyProfileSaveBtn}    
+        Run Keyword If    '${status}'=='True'    Log      
+    END
+ 

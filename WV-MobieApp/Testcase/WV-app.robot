@@ -227,6 +227,11 @@ To verify the navigation to profile page from menu
     Login Function    ${UserName}    ${Password}
     Left Banner Swipe
     Click MyProfile
+    MyProfile Details Check    @{ProfileDetails}
+    Edit Profile    ${MyProfileLastName}
+    
+    
+    
     
     
     

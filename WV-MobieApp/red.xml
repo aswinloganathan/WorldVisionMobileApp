@@ -3,6 +3,7 @@
     <configVersion>2</configVersion>
     <relativeTo>WORKSPACE</relativeTo>
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>

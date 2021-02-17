@@ -1,7 +1,8 @@
 *** Settings *** 
 Library    AppiumLibrary
+Library    Screenshot    
 Library    String    
-Library    DateTime    
+Library    DateTime       
 Variables    WebElements.py
 
 *** Keywords ***
@@ -23,6 +24,8 @@ Set appium details
     ...    deviceName=${DEVICE_NAME}
     ...    automationName=UiAutomator2
     ...    newCommandTimeout=2500
+    ...    unicodeKeyboard=true
+    ...    resetKeyboard=true
 
 Open Worldvision To Reset
     Open Application   ${RemoteURL}
@@ -97,7 +100,7 @@ Right to left Swipe
     Swipe    1004    1055    298    1050
     
 Left Banner Swipe
-    Sleep    10s    
+    Sleep    12s    
     Swipe    0    1026    800    1026        
     
 Element status check
@@ -200,10 +203,37 @@ Clear and Input Text
     Clear Text    ${Field}  
     Input Text    ${Field}    ${Data}
 
-Today date
+Today date in Numbers
+   
     ${CurrentDate}=    Get Current Date    result_format=%Y-%m-%d
     ${todayDate}=    Convert Date    ${CurrentDate}    datetime
     
     [Return]    ${todayDate.day}    ${todayDate.month}    ${todayDate.year}
     
+Today date in strings
+    
+    ${CurrentDate}=    Get Current Date    result_format=%Y-%b-%d    
+    ${year}=    Get Substring    ${CurrentDate}    0    4
+    ${month}=    Get Substring    ${CurrentDate}    5    8
+    ${day}=    Get Substring    ${CurrentDate}    9    12
+    
+    Log    Year: ${year}
+    Log    Month: ${month}    
+    Log    Day: ${day}
+    
+    [Return]    ${year}    ${month}    ${day}
+    
+
+Ways To Give Campaigns
+    [Arguments]    ${Submenu}
+    
+    Left Banner Swipe
+    Click Element    ${LeftMenuWaysToGIve}
+    Sleep    30s        
+    Click Element    ${Submenu}
+    Element status check    ${EducateChildren}    Did not redirected to Educate Children page    Redirected to Educate Children page
+    
+
+       
+
  

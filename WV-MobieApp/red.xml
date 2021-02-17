@@ -4,6 +4,9 @@
     <relativeTo>WORKSPACE</relativeTo>
     <referencedLibrary type="PYTHON" name="AppiumLibrary" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/AppiumLibrary/__init__.py" dynamic="false"/>
     <referencedLibrary type="PYTHON" name="SeleniumLibrary" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/SeleniumLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="pdfminer" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/pdfminer/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="Pdf2TextLibrary" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/Pdf2TextLibrary/__init__.py" dynamic="false"/>
+    <referencedLibrary type="PYTHON" name="pynput_robocorp" path="C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/pynput_robocorp/__init__.py" dynamic="false"/>
     <pythonpath/>
     <classpath/>
     <excludedForValidation/>

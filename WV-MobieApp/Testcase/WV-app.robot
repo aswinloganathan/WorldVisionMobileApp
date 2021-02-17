@@ -1,9 +1,14 @@
 *** Settings ***
 Library    AppiumLibrary
+#Library    SeleniumLibrary    
+Library    Pdf2TextLibrary    
+Library    Collections    
+Library    DateTime     
 Resource    ../Resource/CommonFunctions.robot
 Resource    ../Resource/MyProfilePage.robot
 Resource    ../Resource/TaxReceiptPage.robot
-Library    DateTime    
+
+
 
 Test Setup    Set appium details
 #Test Teardown    Close Application
@@ -15,6 +20,7 @@ Install new application
     [Tags]    Install Application
     
     Install new application
+    
 
 Open WV application
     [Tags]    To verify the welcome screen  
@@ -205,6 +211,7 @@ To verify the functionality of navigating to Tax receipt page
     Login Function    ${UserName}    ${Password}  
     Left Banner Swipe  
     LeftMenuClick    ${LeftMenuTax}
+    Tax Receipt Elements visiblity check
     
 
 To verify the functionality of navigating to Jeevan sparsh
@@ -270,12 +277,66 @@ Verifying the Tax receipt Functionality Of the Donated user
     Click Skip
     Login Function    ${UserName}    ${Password}
     Left Banner Swipe
-    LeftMenuClick    ${LeftMenuTax}  
+    LeftMenuClick    ${LeftMenuTax}
     Select From and To date
-    Click Tax Submit Button
-    Element status check    ${TaxDownloadRcpt}    Tax receipt Download button is not visible    Tax receipt Download button is visible        
+    Click Tax Submit Button    
+    Element status check    ${TaxDownloadRcpt}    Tax receipt Download button is not visible    Tax receipt Download button is visible
+    Click Download Receipt Button   
+        
+To verify the tax receipt functionality of the New user without donations
+    [Tags]    Tax Functionality Page
     
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuTax}
+    Tax Receipt Elements visiblity check
+    Element status check    ${NoDataFound}    No Date Found message was not appeared    No Date Found message was appeared
     
+To verify opening of Tax receipt page using quick links
+    [Tags]    Tax Functionality Page
     
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    BottomMenuClick    ${BottomMenuTaxReceipt}
+    LeftMenuClick    ${LeftMenuTax}
+    Tax Receipt Elements visiblity check
     
+To verify offline - UPI acknowledgement page
+    [Tags]    Share a Joy Functionality
     
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    Ways To Give Campaigns    ${EducateChildren}
+    #need to completed campaign payment page    
+
+
+To verify prelogin concept should not appear in mobile app
+    [Tags]    Postlogin/PreLogin in app
+    
+    Open Application from menu        
+    Click Skip    
+    Element status check    ${LoginButton}    Application doesnt reach login page    Application reached Login Page
+    Login Function    ${UserName}    ${Password}    
+    Element status check    ${User}    Username was not displayed on HomePage    Username dispalyed on HomePage
+    #Need verify postlogin home page
+    
+# To Read pdf and verify
+    # [Tags]    Open Pdf and read text
+    
+    # #MUGUNDAN
+    
+    # ${detail1}=    Convert Pdf To Txt    C:\\Users\\aswin\\Downloads\\receipt.pdf
+    # LOG     ${detail_1}
+    # Should Contain    ${detail1}    Mugundan
+    # ${matched_id_1}=    Get Index From List    MUGUNDAN    0
+    # Run Keyword And Ignore Error    List Should Contain Value    ${detail_1}    ${matched_id_1}
+
+
+
+
+

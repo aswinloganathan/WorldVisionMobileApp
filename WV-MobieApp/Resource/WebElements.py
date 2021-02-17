@@ -93,19 +93,29 @@ MyProfileSaveBtn="xpath=//android.widget.Button[@resource-id='edit-submit']"
 
 #TaxReceiptPage
 
-TaxFromDate="xpath=//android.view.View[@resource-id='edit-created-min']"
+TaxFromDate="xpath=//android.widget.EditText[@resource-id='edit-created-min']"
 TaxFromMonth="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[1]"
-SelectTaxFromMonth="xpath=//android.widget.CheckedTextView[@text='Feb']"
+SelectTaxFromMonth="xpath=//android.widget.CheckedTextView[@text='Apr']"
 TaxFromYear="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[2]"
-SelectTaxFromYear="xpath=//android.widget.CheckedTextView[@text='2021']"
+SelectTaxFromYear="xpath=//android.widget.CheckedTextView[@text='2020']"
 SelectTaxFromDay="xpath=//android.view.View[@text='1']"
+
 
 TaxToDate="xpath=//android.widget.EditText[@resource-id='edit-created-max']"
 TaxToMonth="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[1]"
 TaxToYear="xpath=//android.view.View[@resource-id='ui-datepicker-div']//android.widget.Spinner[2]"
 
-TaxSubmitBtn="xpath=//android.widget.EditText[@resource-id='generate_tax']"
+TaxSubmitBtn="xpath=//android.widget.Button[@resource-id='generate_tax']"
 TaxDownloadRcpt="xpath=//android.widget.Button[@resource-id='order_download']"
+TaxDownloadRcpt="xpath=//android.widget.Button[contains(@text,'Download Tax Receipt')]"
 
-SelectFromDate=""
+NoDataFound="xpath=//android.view.View[@text='No data found']"
 
+#Ways To Give Campaign
+
+EducateChildren="xpath=//android.view.View[contains(@text,'Educate Children')]"
+# PledgeButton="xpath=//android.widget.Image[contains(@text,'pledge')]"
+# SI_Check/Uncheck="xpath=//android.widget.CheckBox[@resource-id='ChkForSI']"
+# AmountBtn="xpath=//android.view.View[contains(@text,'3 Months')]"
+# AddToCart="xpath=//android.widget.Button[contains(@text,'Add to cart')]"
+# ProceedToCart="xpath=//android.widget.Button[contains(@text,'Proceed to cart')]"

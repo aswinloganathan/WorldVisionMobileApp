@@ -20,11 +20,4 @@
 		<nature>org.robotframework.ide.eclipse.main.plugin.robotNature</nature>
 		<nature>org.python.pydev.pythonNature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>libspecs/AppiumLibrary.py</name>
-			<type>1</type>
-			<location>C:/Users/aswin/AppData/Local/Programs/Python/Python38/Lib/site-packages/AppiumLibrary/keywords/_touch.py</location>
-		</link>
-	</linkedResources>
 </projectDescription>

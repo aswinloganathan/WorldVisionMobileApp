@@ -7,7 +7,7 @@ Library    DateTime
 Resource    ../Resource/CommonFunctions.robot
 Resource    ../Resource/MyProfilePage.robot
 Resource    ../Resource/TaxReceiptPage.robot
-
+Resource    ../Resource/FQAPage.robot
 
 
 Test Setup    Set appium details
@@ -260,7 +260,7 @@ To verify the navigation to profile page from menu
     Login Function    ${UserName}    ${Password}
     Left Banner Swipe
     Click MyProfile
-    MyProfile Details Check    @{ProfileDetails}
+    MyProfile Fields Check    @{ProfileField}
     Edit Profile    ${MyProfileLastName}
         
 To verify the uninstall functionality of mobile app
@@ -336,6 +336,30 @@ To verify prelogin concept should not appear in mobile app
     # ${matched_id_1}=    Get Index From List    MUGUNDAN    0
     # Run Keyword And Ignore Error    List Should Contain Value    ${detail_1}    ${matched_id_1}
 
+Added website Cart items should reflect mobile app cart page
+    [Tags]    Cart functionality
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuCart}
+    Click Cart Icon
+    Element status check    ${EducateChildren}    Campaign is not visible    campaign is visible
+
+
+To verify my profile data is reflecting in mobile app profile page
+    [Tags]    MyProfile
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    Click MyProfile    
+    MyProfile Details Check    @{ProfileDetails}
+    
+
+    
 
 
 

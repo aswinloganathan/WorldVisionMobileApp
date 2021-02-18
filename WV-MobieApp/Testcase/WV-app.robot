@@ -358,7 +358,25 @@ To verify my profile data is reflecting in mobile app profile page
     Click MyProfile    
     MyProfile Details Check    @{ProfileDetails}
     
-
+ To Verify Payment success for Net Banking - Tech Process payment Gateway
+    [Tags]    Payment acknowledgement page for SI
+    
+    Open Application from menu
+    Click Skip
+    Login Function    ${UserName}    ${Password}
+    Left Banner Swipe
+    LeftMenuClick    ${LeftMenuWaysToGIve}
+    Scroll Down Till Element Found    ${EducateChildren}
+    Click Element    ${EducateChildren}
+    I Pledge to Support Click
+    Select Price button    
+    Is Checked    ${SICheckUncheck}
+    Proceed To AutoPay Click
+    Element status check    ${SIPaymentGateway}    Payment gateway is not visible    Payment gateway is visible
+    Payment gateways list Check    @{PaymentGatewayList}
+    
+    
+        
     
 
 

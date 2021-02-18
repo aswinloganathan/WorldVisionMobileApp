@@ -73,7 +73,7 @@ JeevanBanner="xpath=//android.view.View[Contains(@text,'Jeevan Sparsh')]"
 JeevanArticlesList=["1. Letter from the National Director", "2. Blessed beyond measure", "3. Weaving a new future", "4. The joy of water security", "5. Phases of Child Sponsorship", "6. Alfy’s Desk", "7. A sponsor’s commitment", "8. A former sponsored child gives back", "9. Cyclone Fani"]
 
 #FQA Page
-FQAlist=["Child sponsorship", "Worldvision india", "payments"]
+FQAlist=["Child Sponsorship", "World Vision India", "Payments"]
 NextButton="xpath=//android.widget.Button[contains(@text,'Next slide')]"
 
 #ContactUS
@@ -86,8 +86,8 @@ ContactUsSubmit="//android.widget.Button[@resource-id='edit-actions-submit']"
 
 #MyProfile Page
 MyProfile="xpath=//android.widget.Image[contains(@text,'avatar.png')]"
-ProfileDetails=["edit-field-title-0-value", "edit-field-first-name-0-value", "edit-field-last-name-0-value", "edit-field-registeraddress-0-value", "edit-field-pin-code-0-value"]
-#ProfileDetails=["edit-field-title", "edit-field-first-name", "edit-field-last-name", "edit-field-gender", "edit-field-registeraddress", "edit-field-pin-code"]
+ProfileField=["edit-field-title-0-value", "edit-field-first-name-0-value", "edit-field-last-name-0-value", "edit-field-registeraddress-0-value", "edit-field-pin-code-0-value", "edit-field-date-of-birth-0-value", "edit-mail", "edit-field-mobile-verify-0-mobile"]
+ProfileDetails=["Mr.", "World", "Vision", "Test address 1", "600023", "08/12/1993", "099999 99995"]
 MyProfileLastName="xpath=//android.widget.EditText[@resource-id='edit-field-last-name-0-value']"
 MyProfileSaveBtn="xpath=//android.widget.Button[@resource-id='edit-submit']"
 
@@ -114,8 +114,17 @@ NoDataFound="xpath=//android.view.View[@text='No data found']"
 #Ways To Give Campaign
 
 EducateChildren="xpath=//android.view.View[contains(@text,'Educate Children')]"
-# PledgeButton="xpath=//android.widget.Image[contains(@text,'pledge')]"
-# SI_Check/Uncheck="xpath=//android.widget.CheckBox[@resource-id='ChkForSI']"
-# AmountBtn="xpath=//android.view.View[contains(@text,'3 Months')]"
-# AddToCart="xpath=//android.widget.Button[contains(@text,'Add to cart')]"
-# ProceedToCart="xpath=//android.widget.Button[contains(@text,'Proceed to cart')]"
+PledgeButton="xpath=//android.widget.Image[contains(@text,'pledge')]"
+SICheckUncheck="xpath=//android.widget.CheckBox[@resource-id='ChkForSI']"
+AmountBtn="xpath=//android.view.View[contains(@text,'3 Months')]"
+AddToCart="xpath=//android.widget.Button[contains(@text,'Add to cart')]"
+ProceedToCart="xpath=//android.widget.Button[contains(@text,'Proceed to cart')]"
+ProceedToAutoPay="xpath=android.widget.Button[@text='PROCEED TO AUTOPAY']"
+SIPaymentGateway="xpath=android.view.View[@text='PAYMENT MODE']"
+PaymentGatewayList=["NET BANKING", "INDIAN CREDIT CARD", "DEBIT CARD"]
+
+#CART Page
+
+CartTopIcon="xpath=//android.widget.Button[contains(@text,'cart')]"
+
+

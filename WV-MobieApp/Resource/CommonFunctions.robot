@@ -1,6 +1,5 @@
 *** Settings *** 
-Library    AppiumLibrary
-Library    Screenshot    
+Library    AppiumLibrary   
 Library    String    
 Library    DateTime       
 Variables    WebElements.py
@@ -108,14 +107,14 @@ Element status check
     
     Sleep    10s
     ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
-    Run Keyword If    '${status}'!='True'    Fail    ${fail_msg}    Log   ${pass_msg}
+    Run Keyword If    '${status}'!='True'    Fail    ${fail_msg}    ELSE    Log   ${pass_msg}
 
 Element Should Not Be Visible
     [Arguments]    ${element}    ${fail_msg}    ${pass_msg}
     
     Sleep    5s        
     ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${element}    
-    Run Keyword If    '${status}'!='False'    Fail    ${fail_msg}    Log    ${pass_msg}    
+    Run Keyword If    '${status}'!='False'    Fail    ${fail_msg}    ELSE    Log    ${pass_msg}    
     
 Element visibility
     [Arguments]    ${element}
@@ -128,7 +127,7 @@ Left Menubar List Check
     Sleep    10s    
     FOR    ${element}    IN    @{ListOfElements}
         ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.Button[contains(@text,'${element}')]    
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    ELSE    Log    ${element} is visible
         Sleep    2s            
     END
 
@@ -138,7 +137,7 @@ Bottom Menubar List Check
     Sleep    15s    
     FOR    ${element}    IN    @{ListOfElements}
         ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.view.View[contains(@text,'${element}')]    
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    ELSE    Log    ${element} is visible
         Sleep    2s            
     END    
         
@@ -162,20 +161,7 @@ Jeevan articles check
     FOR    ${element}    IN    @{ListOfElements}
         Right to left Swipe        
         ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.view.View[contains(@text,'${element}')]    
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
-        Sleep    2s            
-    END
-    
-FQA menus check    
-    [Arguments]    @{ListOfElements}
-    
-    Sleep    10s    
-    FOR    ${element}    IN    @{ListOfElements}
-        Right to left Swipe
-        Click Element    ${NextButton}
-        Sleep    5s    
-        ${status}=    Run Keyword And Return Status    Element Should Be Visible    id=${element}    
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    ELSE    Log    ${element} is visible
         Sleep    2s            
     END
     
@@ -185,7 +171,7 @@ ContactUs Form check
     Sleep    15s    
     FOR    ${element}    IN    @{ListOfElements}
         ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.EditText[@resource-id='${element}']    
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    ELSE    Log    ${element} is visible
         Sleep    2s            
     END
     Element status check    ${ContactUsSponcerBtn}    Donor/Sponsor radio button is not visible    Donor/Sponsor radio button is visible
@@ -229,11 +215,67 @@ Ways To Give Campaigns
     
     Left Banner Swipe
     Click Element    ${LeftMenuWaysToGIve}
-    Sleep    30s        
+    Sleep    30s
     Click Element    ${Submenu}
-    Element status check    ${EducateChildren}    Did not redirected to Educate Children page    Redirected to Educate Children page
+    Element status check    ${Submenu}    Did not redirected to Educate Children page    Redirected to Educate Children page
+    
+Click Cart Icon
+    
+    Click Element    ${CartTopIcon}
+
+Scroll Down Till Element Found
+    [Arguments]    ${ScrollToElement}
+    
+    FOR    ${element}    IN RANGE    1    10        
+        #Swipe    555    1554    570    358             
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${ScrollToElement}    
+        Run Keyword If    '${status}'!='True'    Log    Element Not Found
+        Swipe    555    1554    570    358
+        Exit For Loop If    '${status}'=='True'
+    END
+    
+I Pledge to Support Click
+    Sleep    5s    
+    Click Element    ${PledgeButton}
+    
+SIPaymentCheckBox Click
+    Sleep    5s
+    Click Element    ${SICheckUncheck}
+    
+Add To Cart Click
+    Sleep    5s
+    Click Element    ${AddToCart}
+    
+Proceed To Cart Click
+    Sleep    5s
+    Click Element    ${ProceedToCart}
+    
+Select Price button
+    Sleep    5s    
+    Click Element    ${AmountBtn}
+    
+Proceed To AutoPay Click
+    Sleep    5s    
+    Click Element    ${ProceedToAutoPay}
+    
+Is Checked
+    [Arguments]    ${element}
+    
+    ${status}=    Get Element Attribute    ${element}   checked
+    Run Keyword If    '${status}'!='true'    Fail    Element is not checked    ELSE    Log    Element is Checked
+
+Payment gateways list Check
+    [Arguments]    @{list}
+    
+    Sleep    10s    
+    FOR    ${element}    IN    @{list}
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.view.View[contains(@text,'${element}')]    
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    ELSE    Log    ${element} is visible
+        Sleep    2s            
+    END     
+    
+    
+        
     
 
-       
-
- 
+    

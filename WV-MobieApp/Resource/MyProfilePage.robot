@@ -3,13 +3,14 @@ Library    AppiumLibrary
 Library    String    
 Resource    CommonFunctions.robot
 
+
 *** Keywords ***
 
 Click MyProfile
     Sleep    5s   
     Click Element    ${MyProfile}
 
-MyProfile Details Check
+MyProfile Fields Check
     [Arguments]    @{ListOfElements}
     
     Sleep    10s    
@@ -17,13 +18,33 @@ MyProfile Details Check
         Sleep    5s    
         #Scroll Down    xpath=//android.widget.EditText[@resource-id='${element}']        
         ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.EditText[@resource-id='${element}']
-        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    Log    ${element} is visible
+        Run Keyword If    '${status}'!='True'    Fail    ${element} is not visible    ELSE    Log    ${element} is visible
         Sleep    2s            
     END
+    
+MyProfile Details Check
+    [Arguments]    @{ListOfElements}
+    
+    Sleep    10s    
+    FOR    ${element}    IN    @{ListOfElements}                
+        Sleep    5s                 
+        ${status}=    Run Keyword And Return Status    Element Should Be Visible    xpath=//android.widget.EditText[@resource-id='${element}']
+        Run Keyword If    '${status}'!='True'    Fail      Field is not visible in my profile page    ELSE    Log    Field is visible in my profile page      
+        ${element_text}=    Get Text    xpath=//android.widget.EditText[@resource-id='${element}']
+        MyProfile Details Check nested loop    ${element_text}            
+        Sleep    2s                           
+    END
 
+MyProfile Details Check nested loop
+    [Arguments]    ${element_text}    @{ProfileDetails}
+
+    FOR    ${element}    IN    @{ProfileDetails}
+        Run Keyword If    '${element_text}'!='${element}'    Fail    website details doesnt match with app data    ELSE    Log    website details matching with app data
+    END    
+    
 Edit Profile
     [Arguments]    ${element}        
-    
+            
     ${LastName}=    Generate Random String    length=8    chars=[LETTERS]    
     Clear and Input Text    ${element}    ${LastName}  
 
@@ -35,13 +56,3 @@ Edit Profile
     ${lastNameAfter}=    Get Text    ${element}    
     Should Be Equal    ${LastName}    ${lastNameAfter}
 
-Scroll Down Till Element Found
-    [Arguments]    ${ScrollToElement}
-    
-    FOR    ${element}    IN RANGE    1    10        
-        #Swipe    555    1554    570    358             
-        ${status}=    Run Keyword And Return Status    Element Should Be Visible    ${ScrollToElement}    
-        Run Keyword If    '${status}'!='True'    Log    Element Not Found
-        Swipe    555    1554    570    358
-        Exit For Loop If    '${status}'=='True'
-    END
